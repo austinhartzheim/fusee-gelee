@@ -3,5 +3,5 @@
 
 Roadmap:
 - [x] Payload generation
-- [ ] Device discovery
+- [x] Device discovery
 - [ ] Exploit delivery
