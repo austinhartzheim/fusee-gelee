@@ -1,0 +1,10 @@
+[package]
+name = "fusee"
+version = "0.1.0"
+authors = ["Austin Hartzheim <inbox@austinhartzheim.me>"]
+edition = "2018"
+
+[dependencies]
+libc = "0.2.69"
+clap = "2.33.0"
+rusb = "0.5.5"
