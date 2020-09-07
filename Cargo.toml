@@ -3,6 +3,7 @@ name = "fusee"
 version = "0.1.0"
 authors = ["Austin Hartzheim <inbox@austinhartzheim.me>"]
 edition = "2018"
+license = "GPL-2.0-only"
 
 [dependencies]
 libc = "0.2.69"
