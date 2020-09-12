@@ -5,3 +5,4 @@ Roadmap:
 - [x] Payload generation
 - [x] Device discovery
 - [ ] Exploit delivery
+- [ ] Command line interface
