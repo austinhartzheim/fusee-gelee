@@ -4,6 +4,8 @@ use std::mem;
 
 use crate::constants::*;
 
+pub static INTERMEZZO_DEFAULT: &[u8] = include_bytes!("data/intermezzo.bin");
+
 #[derive(Debug)]
 pub enum PayloadBuildError {
     TooLong,
