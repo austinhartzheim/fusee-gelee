@@ -1,11 +1,17 @@
+//! Payload generation logic
+//!
+//! This module provides logic to add padding to a custom payload for use in the exploit. It also
+//! performs simple payload validation, such as checking the final length of the payload.
 use std::io::{self, Read};
 use std::iter::repeat;
 use std::mem;
 
 use crate::constants::*;
 
+/// The default Intermezzo payload is baked into the binary to ease initial installation.
 pub static INTERMEZZO_DEFAULT: &[u8] = include_bytes!("data/intermezzo.bin");
 
+/// Errors encountered while building the payload.
 #[derive(Debug)]
 pub enum PayloadBuildError {
     TooLong,
@@ -18,6 +24,8 @@ impl From<io::Error> for PayloadBuildError {
     }
 }
 
+/// Combine the intermezzo payload and the target payload into a final byte vector with additional
+/// bytes for the stack spray and final padding.
 pub fn build_payload<R1: Read, R2: Read>(
     mut intermezzo: R1,
     mut target: R2,

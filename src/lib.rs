@@ -8,6 +8,7 @@ pub mod payload;
 use constants::*;
 pub use exploit::{ExploitBackend, LinuxBackend};
 
+/// Errors encountered while executing the exploit.
 #[derive(Debug)]
 pub enum ExploitError {
     PayloadError(payload::PayloadBuildError),
@@ -26,6 +27,7 @@ impl From<payload::PayloadBuildError> for ExploitError {
     }
 }
 
+/// Abstraction over all available exploit backends.
 pub struct ExploitDriver<B: ExploitBackend> {
     /// The exploit backend, providing OS-specific interactions.
     backend: B,
@@ -37,6 +39,11 @@ pub struct ExploitDriver<B: ExploitBackend> {
 impl<B: ExploitBackend> ExploitDriver<B> {
     /// Initialize the `ExploitDriver` by finding a USB device with the provided Vendor ID and
     /// Product ID, returning an error if the device cannot be located.
+    ///
+    /// ```no_run
+    /// use fusee::{ExploitDriver, LinuxBackend};
+    /// ExploitDriver::<LinuxBackend>::discover(0x0955, 0x7321).expect("Failed to find USB device");
+    /// ```
     pub fn discover(vid: u16, pid: u16) -> Result<Self, ()> {
         Ok(Self {
             backend: B::discover(vid, pid)?,
@@ -44,6 +51,7 @@ impl<B: ExploitBackend> ExploitDriver<B> {
         })
     }
 
+    /// Execute the exploit with the provided target payload and intermezzo payload.
     pub fn exploit<T: Read, I: Read>(
         &mut self,
         target: T,
