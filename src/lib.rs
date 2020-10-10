@@ -123,8 +123,7 @@ impl<B: ExploitBackend> ExploitDriver<B> {
         let mut i = 0;
         while i < buf.len() {
             let write_slice = &buf[i..std::cmp::min(buf.len(), i + PACKET_SIZE)];
-            self.backend
-                .write(write_slice)?;
+            self.backend.write(write_slice)?;
             self.toggle_buffer();
             i += PACKET_SIZE;
         }
