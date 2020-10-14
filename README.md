@@ -13,10 +13,16 @@ Currently supported platforms:
 ```
 
 ## Building from source
+Create a debug build:
 ```sh
 git clone https://github.com/austinhartzheim/fusee-gelee.git
 cd fusee-gelee
 cargo build  # binary output to target/debug/fusee-gelee
+```
+
+Create a release build:
+```sh
+cargo build --release
 ```
 
 ## Developing
