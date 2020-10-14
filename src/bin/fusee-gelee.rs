@@ -14,11 +14,13 @@ fn main() {
         )
         .arg(
             Arg::with_name("vendor-id")
+                .short("V")
                 .default_value("0955")
                 .help("Vendor ID, hexadecimal encoded"),
         )
         .arg(
             Arg::with_name("product-id")
+                .short("P")
                 .default_value("7321")
                 .help("Product ID, hexadecimal encoded"),
         )
