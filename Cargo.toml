@@ -6,6 +6,6 @@ edition = "2018"
 license = "GPL-2.0-only"
 
 [dependencies]
-libc = "0.2.69"
-clap = "2.33.0"
-rusb = "0.5.5"
+libc = "0.2.82"
+clap = "2.33.3"
+rusb = "0.7.0"
