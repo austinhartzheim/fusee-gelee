@@ -8,4 +8,4 @@ license = "GPL-2.0-only"
 [dependencies]
 libc = "0.2.138"
 clap = "2.34.0"
-rusb = "0.7.0"
+rusb = "0.9.1"
